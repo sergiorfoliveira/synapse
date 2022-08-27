@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-custstgacct--wssynapse30062022-sasynapse30062022",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/241719b7-f326-42c8-87a0-fb0182d3a3c7/resourceGroups/rgsynapse30062022/providers/Microsoft.Storage/storageAccounts/sasynapse30062022",
+		"groupId": "dfs",
+		"fqdns": [
+			"sasynapse30062022.dfs.core.windows.net"
+		]
+	}
+}
