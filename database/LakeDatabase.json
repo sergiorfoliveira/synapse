@@ -1,0 +1,23 @@
+{
+	"name": "LakeDatabase",
+	"properties": {
+		"Name": "LakeDatabase",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Description": "",
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "wssynapse30062022-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
