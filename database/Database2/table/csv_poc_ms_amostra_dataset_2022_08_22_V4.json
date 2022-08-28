@@ -16,11 +16,11 @@
 				{
 					"Name": "ID_CONTRIBUINTE",
 					"OriginDataTypeName": {
-						"TypeName": "float",
+						"TypeName": "double",
 						"IsComplexType": false,
-						"IsNullable": true,
+						"IsNullable": false,
 						"Properties": {
-							"HIVE_TYPE_STRING": "float"
+							"HIVE_TYPE_STRING": "double"
 						}
 					}
 				},
@@ -389,11 +389,11 @@
 					}
 				},
 				{
-					"Name": "MUNICÍPIO",
+					"Name": "MUNICIPIO",
 					"OriginDataTypeName": {
 						"TypeName": "string",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Length": 8000,
 						"Properties": {
 							"HIVE_TYPE_STRING": "string"
@@ -401,11 +401,11 @@
 					}
 				},
 				{
-					"Name": "PRINCIPAL PRODUTO VENDIDO",
+					"Name": "PRINCIPAL_PRODUTO_VENDIDO",
 					"OriginDataTypeName": {
 						"TypeName": "string",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Length": 8000,
 						"Properties": {
 							"HIVE_TYPE_STRING": "string"
@@ -413,22 +413,22 @@
 					}
 				},
 				{
-					"Name": "PESO PRODUTO VENDAS",
+					"Name": "PESO_PRODUTO_VENDAS",
 					"OriginDataTypeName": {
 						"TypeName": "float",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Properties": {
 							"HIVE_TYPE_STRING": "float"
 						}
 					}
 				},
 				{
-					"Name": "PRINCIPAL PRODUTO COMPRADO",
+					"Name": "PRINCIPAL_PRODUTO_COMPRADO",
 					"OriginDataTypeName": {
 						"TypeName": "string",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Length": 8000,
 						"Properties": {
 							"HIVE_TYPE_STRING": "string"
@@ -436,33 +436,33 @@
 					}
 				},
 				{
-					"Name": "PESO PRODUTO COMPRAS",
+					"Name": "PESO_PRODUTO_COMPRAS",
 					"OriginDataTypeName": {
 						"TypeName": "float",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Properties": {
 							"HIVE_TYPE_STRING": "float"
 						}
 					}
 				},
 				{
-					"Name": "PRINCIPAL FORNECEDOR",
+					"Name": "PRINCIPAL_FORNECEDOR",
 					"OriginDataTypeName": {
 						"TypeName": "float",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Properties": {
 							"HIVE_TYPE_STRING": "float"
 						}
 					}
 				},
 				{
-					"Name": "PESO FORNECEDOR",
+					"Name": "PESO_FORNECEDOR",
 					"OriginDataTypeName": {
 						"TypeName": "float",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Properties": {
 							"HIVE_TYPE_STRING": "float"
 						}
@@ -480,22 +480,22 @@
 					}
 				},
 				{
-					"Name": "PRINCIPAL CLIENTE",
+					"Name": "PRINCIPAL_CLIENTE",
 					"OriginDataTypeName": {
 						"TypeName": "float",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Properties": {
 							"HIVE_TYPE_STRING": "float"
 						}
 					}
 				},
 				{
-					"Name": "PESO CLIENTE",
+					"Name": "PESO_CLIENTE",
 					"OriginDataTypeName": {
 						"TypeName": "float",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Properties": {
 							"HIVE_TYPE_STRING": "float"
 						}
@@ -513,11 +513,11 @@
 					}
 				},
 				{
-					"Name": "CONTADOR RESPONSAVEL NFE",
+					"Name": "CONTADOR_RESPONSAVEL_NFE",
 					"OriginDataTypeName": {
 						"TypeName": "float",
-						"IsComplexType": false,
 						"IsNullable": true,
+						"IsComplexType": false,
 						"Properties": {
 							"HIVE_TYPE_STRING": "float"
 						}
@@ -900,7 +900,7 @@
 		"Properties": {
 			"Description": "",
 			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
-			"PrimaryKeys": "",
+			"PrimaryKeys": "ID_CONTRIBUINTE",
 			"spark.sql.sources.provider": "csv"
 		},
 		"Retention": 0,
