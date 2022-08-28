@@ -2,12 +2,12 @@
 	"name": "SQL script 2",
 	"properties": {
 		"content": {
-			"query": "SELECT COUNT (DISTINCT ID_CONTRIBUINTE)\n FROM [DLDB1].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22_V4]",
+			"query": "SELECT DISTINCT ID_CONTRIBUINTE\n FROM [LDB2].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22_V5]",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "DLDB1",
+				"databaseName": "LDB2",
 				"poolName": "Built-in"
 			},
 			"resultLimit": -1
