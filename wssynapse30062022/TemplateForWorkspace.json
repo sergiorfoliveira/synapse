@@ -7,10 +7,6 @@
 			"metadata": "Workspace name",
 			"defaultValue": "wssynapse30062022"
 		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
 		"AzureBlobStorage2_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
@@ -19,29 +15,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'wssynapse30062022-WorkspaceDefaultSqlServer'"
 		},
-		"city_safety_boston_sasUri": {
-			"type": "secureString",
-			"metadata": "Secure string for 'sasUri' of 'city_safety_boston'"
-		},
-		"public_holiday_sasUri": {
-			"type": "secureString",
-			"metadata": "Secure string for 'sasUri' of 'public_holiday'"
-		},
-		"us-decennial-census-zip_sasUri": {
-			"type": "secureString",
-			"metadata": "Secure string for 'sasUri' of 'us-decennial-census-zip'"
-		},
 		"wssynapse30062022-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sasynapse30062022.dfs.core.windows.net"
-		},
-		"AzureMLService1_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "241719b7-f326-42c8-87a0-fb0182d3a3c7"
-		},
-		"AzureMLService1_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "rgsynapse30062022"
 		}
 	},
 	"variables": {
@@ -387,25 +363,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "AutoResolveIntegrationRuntime",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('workspaceName'), '/AzureBlobStorage2')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
 			"apiVersion": "2019-06-01-preview",
@@ -423,45 +380,6 @@
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/city_safety_boston')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"sasUri": "[parameters('city_safety_boston_sasUri')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/public_holiday')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"sasUri": "[parameters('public_holiday_sasUri')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/us-decennial-census-zip')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"sasUri": "[parameters('us-decennial-census-zip_sasUri')]"
-				}
-			},
-			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('workspaceName'), '/wssynapse30062022-WorkspaceDefaultSqlServer')]",
@@ -542,6 +460,153 @@
 			"properties": {
 				"type": "ManagedIdentity",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/ML Experiment')]",
+			"type": "Microsoft.Synapse/workspaces/notebooks",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"nbformat": 4,
+				"nbformat_minor": 2,
+				"bigDataPool": {
+					"referenceName": "SparkPool01",
+					"type": "BigDataPoolReference"
+				},
+				"sessionProperties": {
+					"driverMemory": "28g",
+					"driverCores": 4,
+					"executorMemory": "28g",
+					"executorCores": 4,
+					"numExecutors": 2,
+					"conf": {
+						"spark.dynamicAllocation.enabled": "false",
+						"spark.dynamicAllocation.minExecutors": "2",
+						"spark.dynamicAllocation.maxExecutors": "2",
+						"spark.autotune.trackingId": "487fd595-02ab-4e6e-929e-357937299cfe"
+					}
+				},
+				"metadata": {
+					"saveOutput": true,
+					"enableDebugMode": false,
+					"kernelspec": {
+						"name": "synapse_pyspark",
+						"display_name": "Synapse PySpark"
+					},
+					"language_info": {
+						"name": "python"
+					},
+					"a365ComputeOptions": {
+						"id": "/subscriptions/241719b7-f326-42c8-87a0-fb0182d3a3c7/resourceGroups/rgsynapse30062022/providers/Microsoft.Synapse/workspaces/wssynapse30062022/bigDataPools/SparkPool01",
+						"name": "SparkPool01",
+						"type": "Spark",
+						"endpoint": "https://wssynapse30062022.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkPool01",
+						"auth": {
+							"type": "AAD",
+							"authResource": "https://dev.azuresynapse.net"
+						},
+						"sparkVersion": "3.1",
+						"nodeCount": 10,
+						"cores": 8,
+						"memory": 56
+					},
+					"sessionKeepAliveTimeout": 30
+				},
+				"cells": [
+					{
+						"cell_type": "code",
+						"source": [
+							"import azureml.core\n",
+							"\n",
+							"from azureml.core import Experiment, Workspace, Dataset, Datastore\n",
+							"from azureml.train.automl import AutoMLConfig\n",
+							"from notebookutils import mssparkutils\n",
+							"from azureml.data.dataset_factory import TabularDatasetFactory"
+						],
+						"outputs": [],
+						"execution_count": 1
+					},
+					{
+						"cell_type": "code",
+						"source": [
+							"linkedService_name = \"AzureMLService1\"\n",
+							"experiment_name = \"Experiment_27_08_2022_19_00\"\n",
+							"\n",
+							"ws = mssparkutils.azureML.getWorkspace(linkedService_name)\n",
+							"experiment = Experiment(ws, experiment_name)"
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"source": [
+							"df = spark.sql(\"SELECT * FROM LakeDatabase.csv_poc_ms_amostra_dataset_2022_08_22\")\n",
+							"\n",
+							"datastore = Datastore.get_default(ws)\n",
+							"dataset = TabularDatasetFactory.register_spark_dataframe(df, datastore, name = experiment_name + \"-dataset\")"
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"source": [
+							"automl_config = AutoMLConfig(spark_context = sc,\n",
+							"                             task = \"classification\",\n",
+							"                             training_data = dataset,\n",
+							"                             label_column_name = \"TARGET\",\n",
+							"                             primary_metric = \"accuracy\",\n",
+							"                             experiment_timeout_hours = 3,\n",
+							"                             max_concurrent_iterations = 2,\n",
+							"                             enable_onnx_compatible_models = False)"
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"source": [
+							"run = experiment.submit(automl_config)"
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"source": [
+							"displayHTML(\"<a href={} target='_blank'>Your experiment in Azure Machine Learning portal: {}</a>\".format(run.get_portal_url(), run.id))"
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"source": [
+							"run.wait_for_completion()\n",
+							"\n",
+							"import mlflow\n",
+							"\n",
+							"# Get best model from automl run\n",
+							"best_run, non_onnx_model = run.get_output()\n",
+							"\n",
+							"artifact_path = experiment_name + \"_artifact\"\n",
+							"\n",
+							"mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())\n",
+							"mlflow.set_experiment(experiment_name)\n",
+							"\n",
+							"with mlflow.start_run() as run:\n",
+							"    # Save the model to the outputs directory for capture\n",
+							"    mlflow.sklearn.log_model(non_onnx_model, artifact_path)\n",
+							"\n",
+							"    # Register the model to AML model registry\n",
+							"    mlflow.register_model(\"runs:/\" + run.info.run_id + \"/\" + artifact_path, \"wssynapse30062022-csv_poc_ms_amostra_dataset_2022_08_22-20220827100132-Best\")"
+						],
+						"outputs": [],
+						"execution_count": null
+					}
+				]
 			},
 			"dependsOn": []
 		},
@@ -659,7 +724,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/LakeDatabase')]",
+			"name": "[concat(parameters('workspaceName'), '/Database1')]",
 			"type": "Microsoft.Synapse/workspaces/databases",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
@@ -668,7 +733,7 @@
 						"ActionType": "CREATE",
 						"OldEntity": null,
 						"NewEntity": {
-							"Name": "LakeDatabase",
+							"Name": "Database1",
 							"EntityType": "DATABASE",
 							"Origin": {
 								"Type": "SPARK"
@@ -676,10 +741,9 @@
 							"Properties": {
 								"IsSyMSCDMDatabase": true
 							},
-							"Description": "",
 							"Source": {
 								"Provider": "ADLS",
-								"Location": "abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1",
+								"Location": "abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/Database1",
 								"Properties": {
 									"FormatType": "csv",
 									"LinkedServiceName": "wssynapse30062022-WorkspaceDefaultStorage"
@@ -689,1145 +753,348 @@
 						"Source": {
 							"Type": "SPARK"
 						}
-					},
-					{
-						"ActionType": "CREATE",
-						"OldEntity": null,
-						"NewEntity": {
-							"Name": "csv_poc_ms_amostra_dataset_2022_08_22",
-							"EntityType": "TABLE",
-							"Namespace": {
-								"DatabaseName": "LakeDatabase"
-							},
-							"Description": "",
-							"TableType": "EXTERNAL",
-							"Origin": {
-								"Type": "SPARK"
-							},
-							"StorageDescriptor": {
-								"Columns": [
-									{
-										"Name": "ID_CONTRIBUINTE",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_E12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_PRODUTO_E12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_INTERESTADUAIS_E12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_INTERNAS_E12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_ICMS_E12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_S12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_PRODUTO_S12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_INTERESTADUAIS_S12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_INTERNAS_S12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_ICMS_S12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TOTAL_NFCE_12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "NE12_NS12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "NE12_NFCE12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "D12_NE12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "D12_NS12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "NE3_NE12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "CS_NE12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "A12_NE12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "ARRECADACAO_12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "DECLARADOS_12",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "DECLARACOES_12_PERCENTUAL",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "COD_CONDICAO_CONTRB",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SETOR_ECONOMICO_CONTRIB",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SEGMENTO_ECONOMICO_CONTRIB",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SUBSEGMENTO_ECONOM_CONTRIB",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_PORTE_ECONOMICO_CONTRIB",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "TEMPO_OPERACAO",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_MVA_ANO_CALENDARIO",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "UF",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "MUNICIPIO",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PRINCIPAL_PRODUTO_VENDIDO",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PESO_PRODUTO_VENDAS",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PRINCIPAL_PRODUTO_COMPRADO",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PESO_PRODUTO_COMPRAS",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PRINCIPAL_FORNECEDOR",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "PESO_FORNECEDOR",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PESO_NO_FORNECEDOR",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PRINCIPAL_CLIENTE",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "PESO_CLIENTE",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "PESO_NO_CLIENTE",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "CONTADOR_RESPONSAVEL_NFE",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsNullable": true,
-											"IsComplexType": false,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "FORNECEDOR_INSCRITO",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_FORMA_PAGTO_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_CONDICAO_CONTRB_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SETOR_ECONOMICO_CONTRIB_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SEGMENTO_ECONOMICO_CONTRIB_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_PORTE_ECONOMICO_CONTRIB_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "DTR_INICIO_OPERACAO_EMPRESA_F",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_F",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_MVA_ANO_CALENDARIO_F",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_F",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "CLIENTE_INSCRITO",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_FORMA_PAGTO_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_CONDICAO_CONTRB_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SETOR_ECONOMICO_CONTRIB_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SEGMENTO_ECONOMICO_CONTRIB_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "COD_PORTE_ECONOMICO_CONTRIB_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "DTR_INICIO_OPERACAO_EMPRESA_C",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_C",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_MVA_ANO_CALENDARIO_C",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_C",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "TARGET",
-										"OriginDataTypeName": {
-											"TypeName": "long",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Properties": {
-												"HIVE_TYPE_STRING": "long"
-											}
-										}
-									},
-									{
-										"Name": "MT_RANDOM",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									},
-									{
-										"Name": "SELECAO",
-										"OriginDataTypeName": {
-											"TypeName": "string",
-											"IsComplexType": false,
-											"IsNullable": true,
-											"Length": 8000,
-											"Properties": {
-												"HIVE_TYPE_STRING": "string"
-											}
-										}
-									}
-								],
-								"Format": {
-									"InputFormat": "org.apache.hadoop.mapred.SequenceFileInputFormat",
-									"OutputFormat": "org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat",
-									"FormatType": "csv",
-									"SerializeLib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
-									"Properties": {
-										"path": "abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/csv-poc-ms-amostra-dataset-2022-08-22.csv",
-										"delimiter": ",",
-										"multiLine": "false",
-										"firstRowAsHeader": "true",
-										"serialization.format": "1",
-										"FormatTypeSetToDatabaseDefault": false,
-										"header": "true"
-									}
-								},
-								"Source": {
-									"Provider": "ADLS",
-									"Location": "abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/csv-poc-ms-amostra-dataset-2022-08-22.csv",
-									"Properties": {
-										"LinkedServiceName": "wssynapse30062022-WorkspaceDefaultStorage",
-										"LocationSetToDatabaseDefault": false
-									}
-								},
-								"Properties": {
-									"textinputformat.record.delimiter": ",",
-									"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
-									"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
-								},
-								"Compressed": false,
-								"IsStoredAsSubdirectories": false
-							},
-							"Properties": {
-								"Description": "",
-								"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
-								"PrimaryKeys": "",
-								"spark.sql.sources.provider": "csv"
-							},
-							"Retention": 0,
-							"Temporary": false,
-							"IsRewriteEnabled": false,
-							"Partitioning": {}
-						},
-						"Source": {
-							"Type": "SPARK"
-						}
 					}
 				]
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/AzureMLService1')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"name": "[concat(parameters('workspaceName'), '/csv_poc_ms_amostra_dataset_2022_08_22_V4')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
-				"annotations": [],
-				"type": "AzureMLService",
-				"typeProperties": {
-					"subscriptionId": "[parameters('AzureMLService1_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('AzureMLService1_properties_typeProperties_resourceGroupName')]",
-					"mlWorkspaceName": "wsaml30062022",
-					"authentication": "MSI"
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage2",
+					"type": "LinkedServiceReference"
 				},
-				"connectVia": {
-					"referenceName": "AutoResolveIntegrationRuntime",
-					"type": "IntegrationRuntimeReference"
-				}
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "csv-poc-ms-amostra-dataset-2022-08-22_V4.csv",
+						"folderPath": "UI/08-28-2022_104517_UTC",
+						"container": "azureml-blobstore-db601101-4b86-4850-b75b-273edbb4dc8a"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "ID_CONTRIBUINTE",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_E12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_PRODUTO_E12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_INTERESTADUAIS_E12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_INTERNAS_E12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_ICMS_E12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_S12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_PRODUTO_S12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_INTERESTADUAIS_S12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_INTERNAS_S12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_ICMS_S12",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_NFCE_12",
+						"type": "String"
+					},
+					{
+						"name": "NE12_NS12",
+						"type": "String"
+					},
+					{
+						"name": "NE12_NFCE12",
+						"type": "String"
+					},
+					{
+						"name": "D12_NE12",
+						"type": "String"
+					},
+					{
+						"name": "D12_NS12",
+						"type": "String"
+					},
+					{
+						"name": "NE3_NE12",
+						"type": "String"
+					},
+					{
+						"name": "CS_NE12",
+						"type": "String"
+					},
+					{
+						"name": "A12_NE12",
+						"type": "String"
+					},
+					{
+						"name": "ARRECADACAO_12",
+						"type": "String"
+					},
+					{
+						"name": "DECLARADOS_12",
+						"type": "String"
+					},
+					{
+						"name": "DECLARACOES_12_PERCENTUAL",
+						"type": "String"
+					},
+					{
+						"name": "COD_CONDICAO_CONTRB",
+						"type": "String"
+					},
+					{
+						"name": "COD_SETOR_ECONOMICO_CONTRIB",
+						"type": "String"
+					},
+					{
+						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB",
+						"type": "String"
+					},
+					{
+						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB",
+						"type": "String"
+					},
+					{
+						"name": "COD_PORTE_ECONOMICO_CONTRIB",
+						"type": "String"
+					},
+					{
+						"name": "TEMPO_OPERACAO",
+						"type": "String"
+					},
+					{
+						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA",
+						"type": "String"
+					},
+					{
+						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
+						"type": "String"
+					},
+					{
+						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
+						"type": "String"
+					},
+					{
+						"name": "VAL_MVA_ANO_CALENDARIO",
+						"type": "String"
+					},
+					{
+						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA",
+						"type": "String"
+					},
+					{
+						"name": "UF",
+						"type": "String"
+					},
+					{
+						"name": "MUNICÍPIO",
+						"type": "String"
+					},
+					{
+						"name": "PRINCIPAL PRODUTO VENDIDO",
+						"type": "String"
+					},
+					{
+						"name": "PESO PRODUTO VENDAS",
+						"type": "String"
+					},
+					{
+						"name": "PRINCIPAL PRODUTO COMPRADO",
+						"type": "String"
+					},
+					{
+						"name": "PESO PRODUTO COMPRAS",
+						"type": "String"
+					},
+					{
+						"name": "PRINCIPAL FORNECEDOR",
+						"type": "String"
+					},
+					{
+						"name": "PESO FORNECEDOR",
+						"type": "String"
+					},
+					{
+						"name": "PESO_NO_FORNECEDOR",
+						"type": "String"
+					},
+					{
+						"name": "PRINCIPAL CLIENTE",
+						"type": "String"
+					},
+					{
+						"name": "PESO CLIENTE",
+						"type": "String"
+					},
+					{
+						"name": "PESO_NO_CLIENTE",
+						"type": "String"
+					},
+					{
+						"name": "CONTADOR RESPONSAVEL NFE",
+						"type": "String"
+					},
+					{
+						"name": "FORNECEDOR_INSCRITO",
+						"type": "String"
+					},
+					{
+						"name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_F",
+						"type": "String"
+					},
+					{
+						"name": "COD_FORMA_PAGTO_F",
+						"type": "String"
+					},
+					{
+						"name": "COD_CONDICAO_CONTRB_F",
+						"type": "String"
+					},
+					{
+						"name": "COD_SETOR_ECONOMICO_CONTRIB_F",
+						"type": "String"
+					},
+					{
+						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB_F",
+						"type": "String"
+					},
+					{
+						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_F",
+						"type": "String"
+					},
+					{
+						"name": "COD_PORTE_ECONOMICO_CONTRIB_F",
+						"type": "String"
+					},
+					{
+						"name": "DTR_INICIO_OPERACAO_EMPRESA_F",
+						"type": "String"
+					},
+					{
+						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_F",
+						"type": "String"
+					},
+					{
+						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
+						"type": "String"
+					},
+					{
+						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
+						"type": "String"
+					},
+					{
+						"name": "VAL_MVA_ANO_CALENDARIO_F",
+						"type": "String"
+					},
+					{
+						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_F",
+						"type": "String"
+					},
+					{
+						"name": "CLIENTE_INSCRITO",
+						"type": "String"
+					},
+					{
+						"name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_C",
+						"type": "String"
+					},
+					{
+						"name": "COD_FORMA_PAGTO_C",
+						"type": "String"
+					},
+					{
+						"name": "COD_CONDICAO_CONTRB_C",
+						"type": "String"
+					},
+					{
+						"name": "COD_SETOR_ECONOMICO_CONTRIB_C",
+						"type": "String"
+					},
+					{
+						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB_C",
+						"type": "String"
+					},
+					{
+						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_C",
+						"type": "String"
+					},
+					{
+						"name": "COD_PORTE_ECONOMICO_CONTRIB_C",
+						"type": "String"
+					},
+					{
+						"name": "DTR_INICIO_OPERACAO_EMPRESA_C",
+						"type": "String"
+					},
+					{
+						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_C",
+						"type": "String"
+					},
+					{
+						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
+						"type": "String"
+					},
+					{
+						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
+						"type": "String"
+					},
+					{
+						"name": "VAL_MVA_ANO_CALENDARIO_C",
+						"type": "String"
+					},
+					{
+						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_C",
+						"type": "String"
+					},
+					{
+						"name": "TARGET",
+						"type": "String"
+					},
+					{
+						"name": "MT_RANDOM",
+						"type": "String"
+					},
+					{
+						"name": "SELECAO",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+				"[concat(variables('workspaceId'), '/linkedServices/AzureBlobStorage2')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/ML Experiment')]",
-			"type": "Microsoft.Synapse/workspaces/notebooks",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"nbformat": 4,
-				"nbformat_minor": 2,
-				"bigDataPool": {
-					"referenceName": "SparkPool01",
-					"type": "BigDataPoolReference"
-				},
-				"sessionProperties": {
-					"driverMemory": "28g",
-					"driverCores": 4,
-					"executorMemory": "28g",
-					"executorCores": 4,
-					"numExecutors": 2,
-					"conf": {
-						"spark.dynamicAllocation.enabled": "false",
-						"spark.dynamicAllocation.minExecutors": "2",
-						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "96e175ef-cd1f-4de4-9361-a513e16bcdf0"
-					}
-				},
-				"metadata": {
-					"saveOutput": true,
-					"enableDebugMode": false,
-					"kernelspec": {
-						"name": "synapse_pyspark",
-						"display_name": "Synapse PySpark"
-					},
-					"language_info": {
-						"name": "python"
-					},
-					"a365ComputeOptions": {
-						"id": "/subscriptions/241719b7-f326-42c8-87a0-fb0182d3a3c7/resourceGroups/rgsynapse30062022/providers/Microsoft.Synapse/workspaces/wssynapse30062022/bigDataPools/SparkPool01",
-						"name": "SparkPool01",
-						"type": "Spark",
-						"endpoint": "https://wssynapse30062022.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkPool01",
-						"auth": {
-							"type": "AAD",
-							"authResource": "https://dev.azuresynapse.net"
-						},
-						"sparkVersion": "3.1",
-						"nodeCount": 10,
-						"cores": 8,
-						"memory": 56,
-						"automaticScaleJobs": false
-					},
-					"sessionKeepAliveTimeout": 30
-				},
-				"cells": [
-					{
-						"cell_type": "code",
-						"metadata": {},
-						"source": [
-							"import azureml.core\n",
-							"\n",
-							"from azureml.core import Experiment, Workspace, Dataset, Datastore\n",
-							"from azureml.train.automl import AutoMLConfig\n",
-							"from notebookutils import mssparkutils\n",
-							"from azureml.data.dataset_factory import TabularDatasetFactory"
-						],
-						"outputs": [],
-						"execution_count": 1
-					},
-					{
-						"cell_type": "code",
-						"metadata": {},
-						"source": [
-							"linkedService_name = \"AzureMLService1\"\n",
-							"experiment_name = \"Experiment_27_08_2022_19_00\"\n",
-							"\n",
-							"ws = mssparkutils.azureML.getWorkspace(linkedService_name)\n",
-							"experiment = Experiment(ws, experiment_name)"
-						],
-						"outputs": [],
-						"execution_count": null
-					},
-					{
-						"cell_type": "code",
-						"metadata": {},
-						"source": [
-							"df = spark.sql(\"SELECT * FROM LakeDatabase.csv_poc_ms_amostra_dataset_2022_08_22\")\n",
-							"\n",
-							"datastore = Datastore.get_default(ws)\n",
-							"dataset = TabularDatasetFactory.register_spark_dataframe(df, datastore, name = experiment_name + \"-dataset\")"
-						],
-						"outputs": [],
-						"execution_count": null
-					},
-					{
-						"cell_type": "code",
-						"metadata": {},
-						"source": [
-							"automl_config = AutoMLConfig(spark_context = sc,\n",
-							"                             task = \"classification\",\n",
-							"                             training_data = dataset,\n",
-							"                             label_column_name = \"TARGET\",\n",
-							"                             primary_metric = \"accuracy\",\n",
-							"                             experiment_timeout_hours = 3,\n",
-							"                             max_concurrent_iterations = 2,\n",
-							"                             enable_onnx_compatible_models = False)"
-						],
-						"outputs": [],
-						"execution_count": null
-					},
-					{
-						"cell_type": "code",
-						"metadata": {},
-						"source": [
-							"run = experiment.submit(automl_config)"
-						],
-						"outputs": [],
-						"execution_count": null
-					},
-					{
-						"cell_type": "code",
-						"metadata": {},
-						"source": [
-							"displayHTML(\"<a href={} target='_blank'>Your experiment in Azure Machine Learning portal: {}</a>\".format(run.get_portal_url(), run.id))"
-						],
-						"outputs": [],
-						"execution_count": null
-					},
-					{
-						"cell_type": "code",
-						"metadata": {},
-						"source": [
-							"run.wait_for_completion()\n",
-							"\n",
-							"import mlflow\n",
-							"\n",
-							"# Get best model from automl run\n",
-							"best_run, non_onnx_model = run.get_output()\n",
-							"\n",
-							"artifact_path = experiment_name + \"_artifact\"\n",
-							"\n",
-							"mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())\n",
-							"mlflow.set_experiment(experiment_name)\n",
-							"\n",
-							"with mlflow.start_run() as run:\n",
-							"    # Save the model to the outputs directory for capture\n",
-							"    mlflow.sklearn.log_model(non_onnx_model, artifact_path)\n",
-							"\n",
-							"    # Register the model to AML model registry\n",
-							"    mlflow.register_model(\"runs:/\" + run.info.run_id + \"/\" + artifact_path, \"wssynapse30062022-csv_poc_ms_amostra_dataset_2022_08_22-20220827100132-Best\")"
-						],
-						"outputs": [],
-						"execution_count": null
-					}
-				]
-			},
-			"dependsOn": []
 		}
 	]
 }

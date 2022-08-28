@@ -5,32 +5,14 @@
 		"workspaceName": {
 			"value": "wssynapse30062022"
 		},
-		"AzureBlobStorage1_connectionString": {
-			"value": ""
-		},
 		"AzureBlobStorage2_connectionString": {
 			"value": ""
 		},
 		"wssynapse30062022-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
 		},
-		"city_safety_boston_sasUri": {
-			"value": ""
-		},
-		"public_holiday_sasUri": {
-			"value": ""
-		},
-		"us-decennial-census-zip_sasUri": {
-			"value": ""
-		},
 		"wssynapse30062022-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://sasynapse30062022.dfs.core.windows.net"
-		},
-		"AzureMLService1_properties_typeProperties_subscriptionId": {
-			"value": "241719b7-f326-42c8-87a0-fb0182d3a3c7"
-		},
-		"AzureMLService1_properties_typeProperties_resourceGroupName": {
-			"value": "rgsynapse30062022"
 		}
 	}
 }
