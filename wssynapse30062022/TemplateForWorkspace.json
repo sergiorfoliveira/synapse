@@ -2181,11 +2181,11 @@
 									{
 										"Name": "ID_CONTRIBUINTE",
 										"OriginDataTypeName": {
-											"TypeName": "long",
+											"TypeName": "float",
 											"IsComplexType": false,
 											"IsNullable": true,
 											"Properties": {
-												"HIVE_TYPE_STRING": "long"
+												"HIVE_TYPE_STRING": "float"
 											}
 										}
 									},
