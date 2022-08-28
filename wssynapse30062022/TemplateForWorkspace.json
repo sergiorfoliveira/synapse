@@ -1087,12 +1087,12 @@
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
 				"content": {
-					"query": "SELECT DISTINCT ID_CONTRIBUINTE\n FROM [LDB2].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22_V5]",
+					"query": "SELECT DISTINCT ID_CONTRIBUINTE\n FROM [LDB3].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22_V6]",
 					"metadata": {
 						"language": "sql"
 					},
 					"currentConnection": {
-						"databaseName": "LDB2",
+						"databaseName": "LDB3",
 						"poolName": "Built-in"
 					},
 					"resultLimit": -1
@@ -1171,11 +1171,11 @@
 									{
 										"Name": "ID_CONTRIBUINTE",
 										"OriginDataTypeName": {
-											"TypeName": "long",
+											"TypeName": "float",
 											"IsComplexType": false,
 											"IsNullable": true,
 											"Properties": {
-												"HIVE_TYPE_STRING": "long"
+												"HIVE_TYPE_STRING": "float"
 											}
 										}
 									},
@@ -2060,7 +2060,8 @@
 							},
 							"Retention": 0,
 							"Temporary": false,
-							"IsRewriteEnabled": false
+							"IsRewriteEnabled": false,
+							"Partitioning": {}
 						},
 						"Source": {
 							"Type": "SPARK"
