@@ -2,7 +2,7 @@
 	"name": "SQL script 2",
 	"properties": {
 		"content": {
-			"query": "SELECT ID_CONTRIBUINTE, COUNT(*)\n FROM [LDB4].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22_V7]\n GROUP BY ID_CONTRIBUINTE\n HAVING COUNT(*)>1\n \n ",
+			"query": "SELECT ID_CONTRIBUINTE, COUNT(*)\n FROM [LDB4].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22]\n GROUP BY ID_CONTRIBUINTE\n HAVING COUNT(*)>1\n \n ",
 			"metadata": {
 				"language": "sql"
 			},

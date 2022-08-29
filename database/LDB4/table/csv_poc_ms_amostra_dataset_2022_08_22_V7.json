@@ -389,7 +389,7 @@
 					}
 				},
 				{
-					"Name": "MUNIICIPIO",
+					"Name": "MUNICIPIO",
 					"OriginDataTypeName": {
 						"TypeName": "string",
 						"IsNullable": true,
@@ -891,7 +891,7 @@
 			},
 			"Properties": {
 				"textinputformat.record.delimiter": ",",
-				"compression": "",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
 				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
 			},
 			"Compressed": false,
