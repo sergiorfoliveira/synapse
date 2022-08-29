@@ -2,12 +2,12 @@
 	"name": "SQL script 2",
 	"properties": {
 		"content": {
-			"query": "SELECT DISTINCT ID_CONTRIBUINTE\n FROM [LDB3].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22_V6]",
+			"query": "SELECT ID_CONTRIBUINTE, COUNT(*)\n FROM [LDB4].[dbo].[csv_poc_ms_amostra_dataset_2022_08_22_V7]\n GROUP BY ID_CONTRIBUINTE\n HAVING COUNT(*)>1\n \n ",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "LDB3",
+				"databaseName": "LDB4",
 				"poolName": "Built-in"
 			},
 			"resultLimit": -1
