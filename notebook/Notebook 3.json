@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "ab5651b9-c197-4390-9c39-be0453f95c90"
+				"spark.autotune.trackingId": "11efbc66-af74-4a57-ad5a-97458e0e6abe"
 			}
 		},
 		"metadata": {
@@ -57,10 +57,10 @@
 				},
 				"source": [
 					"%%pyspark\n",
-					"df = spark.sql(\"SELECT * FROM `LDB4`.`DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2`\")\n",
+					"df = spark.sql(\"SELECT * FROM LDB4.DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2_validacao\")\n",
 					"# df.show(10)"
 				],
-				"execution_count": 15
+				"execution_count": 16
 			},
 			{
 				"cell_type": "code",
@@ -76,9 +76,9 @@
 					}
 				},
 				"source": [
-					"spark.sql(\"SELECT DISTINCT ID_CONTRIBUINTE FROM LDB4.DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2\").show()"
+					"df.show()"
 				],
-				"execution_count": 14
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -94,10 +94,66 @@
 					}
 				},
 				"source": [
-					"path='abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/DADOS_POC_ANONIMIZADO_ENTRADA_S2_v3.parquet'\r\n",
-					"df.coalesce(1).write.parquet(path, mode = 'overwrite')"
+					"pathcsv='abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2_validacao.csv'\r\n",
+					"pathparquet='abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2_validacao.parquet'\r\n",
+					""
 				],
-				"execution_count": 13
+				"execution_count": 20
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"df = spark.read.options(inferSchema='TRUE',delimiter=';',header='TRUE').csv(pathcsv)\r\n",
+					""
+				],
+				"execution_count": 31
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"df.show(10)"
+				],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"df.coalesce(1).write.parquet(pathparquet, mode = 'overwrite')"
+				],
+				"execution_count": 33
 			}
 		]
 	}
