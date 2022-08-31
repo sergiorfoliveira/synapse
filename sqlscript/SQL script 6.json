@@ -2,7 +2,7 @@
 	"name": "SQL script 6",
 	"properties": {
 		"content": {
-			"query": "SELECT COUNT(ID_CONTRIBUINTE)\n FROM [LDB4].[dbo].[newtable]",
+			"query": "SELECT COUNT(ID_CONTRIBUINTE)\n FROM [LDB4].[dbo].[DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2]",
 			"metadata": {
 				"language": "sql"
 			},

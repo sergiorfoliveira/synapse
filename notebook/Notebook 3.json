@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "e44fd84e-f33f-4c3e-9e25-9a24b2419527"
+				"spark.autotune.trackingId": "ab5651b9-c197-4390-9c39-be0453f95c90"
 			}
 		},
 		"metadata": {
@@ -60,7 +60,7 @@
 					"df = spark.sql(\"SELECT * FROM `LDB4`.`DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2`\")\n",
 					"# df.show(10)"
 				],
-				"execution_count": 3
+				"execution_count": 15
 			},
 			{
 				"cell_type": "code",
@@ -78,7 +78,7 @@
 				"source": [
 					"spark.sql(\"SELECT DISTINCT ID_CONTRIBUINTE FROM LDB4.DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2\").show()"
 				],
-				"execution_count": 8
+				"execution_count": 14
 			},
 			{
 				"cell_type": "code",
