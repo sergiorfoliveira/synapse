@@ -4086,7 +4086,7 @@
 								},
 								"Properties": {
 									"textinputformat.record.delimiter": ",",
-									"compression": "",
+									"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
 									"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
 								},
 								"Compressed": false,
@@ -4097,6 +4097,920 @@
 								"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
 								"PrimaryKeys": "",
 								"spark.sql.sources.provider": "parquet"
+							},
+							"Retention": 0,
+							"Temporary": false,
+							"IsRewriteEnabled": false
+						},
+						"Source": {
+							"Type": "SPARK"
+						}
+					},
+					{
+						"ActionType": "CREATE",
+						"OldEntity": null,
+						"NewEntity": {
+							"Name": "DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2_validacao",
+							"EntityType": "TABLE",
+							"Namespace": {
+								"DatabaseName": "LDB4"
+							},
+							"Description": "",
+							"TableType": "EXTERNAL",
+							"Origin": {
+								"Type": "SPARK"
+							},
+							"StorageDescriptor": {
+								"Columns": [
+									{
+										"Name": "ID_CONTRIBUINTE",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_E12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_PRODUTO_E12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_INTERESTADUAIS_E12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_INTERNAS_E12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_ICMS_E12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_S12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_PRODUTO_S12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_INTERESTADUAIS_S12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_INTERNAS_S12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_ICMS_S12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TOTAL_NFCE_12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "NE12_NS12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "NE12_NFCE12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "D12_NE12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "D12_NS12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "NE3_NE12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "CS_NE12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "A12_NE12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "ARRECADACAO_12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "DECLARADOS_12",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "DECLARACOES_12_PERCENTUAL",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "COD_CONDICAO_CONTRB",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SETOR_ECONOMICO_CONTRIB",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SEGMENTO_ECONOMICO_CONTRIB",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SUBSEGMENTO_ECONOM_CONTRIB",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_PORTE_ECONOMICO_CONTRIB",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "TEMPO_OPERACAO",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_MVA_ANO_CALENDARIO",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "UF",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										}
+									},
+									{
+										"Name": "MUNICIPIO",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										}
+									},
+									{
+										"Name": "PRINCIPAL_PRODUTO_VENDIDO",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										}
+									},
+									{
+										"Name": "PESO_PRODUTO_VENDAS",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "PRINCIPAL_PRODUTO_COMPRADO",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										}
+									},
+									{
+										"Name": "PESO_PRODUTO_COMPRAS",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "PRINCIPAL_FORNECEDOR",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "PESO_FORNECEDOR",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "PESO_NO_FORNECEDOR",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "PRINCIPAL_CLIENTE",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "PESO_CLIENTE",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "PESO_NO_CLIENTE",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "CONTADOR_RESPONSAVEL_NFE",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "FORNECEDOR_INSCRITO",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_FORMA_PAGTO_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_CONDICAO_CONTRB_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SETOR_ECONOMICO_CONTRIB_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SEGMENTO_ECONOMICO_CONTRIB_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_PORTE_ECONOMICO_CONTRIB_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "DTR_INICIO_OPERACAO_EMPRESA_F",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_F",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_MVA_ANO_CALENDARIO_F",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_F",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "CLIENTE_INSCRITO",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_FORMA_PAGTO_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_CONDICAO_CONTRB_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SETOR_ECONOMICO_CONTRIB_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SEGMENTO_ECONOMICO_CONTRIB_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "COD_PORTE_ECONOMICO_CONTRIB_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "DTR_INICIO_OPERACAO_EMPRESA_C",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_C",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_MVA_ANO_CALENDARIO_C",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_C",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "TARGET",
+										"OriginDataTypeName": {
+											"TypeName": "long",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "long"
+											}
+										}
+									},
+									{
+										"Name": "MT_RANDOM",
+										"OriginDataTypeName": {
+											"TypeName": "float",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Properties": {
+												"HIVE_TYPE_STRING": "float"
+											}
+										}
+									},
+									{
+										"Name": "SELECAO",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										}
+									}
+								],
+								"Format": {
+									"InputFormat": "org.apache.hadoop.mapred.SequenceFileInputFormat",
+									"OutputFormat": "org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat",
+									"FormatType": "csv",
+									"SerializeLib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
+									"Properties": {
+										"path": "abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2_validacao.csv",
+										"delimiter": ",",
+										"multiLine": "false",
+										"firstRowAsHeader": "true",
+										"serialization.format": "1",
+										"FormatTypeSetToDatabaseDefault": false,
+										"header": "true"
+									}
+								},
+								"Source": {
+									"Provider": "ADLS",
+									"Location": "abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2_validacao.csv",
+									"Properties": {
+										"LinkedServiceName": "wssynapse30062022-WorkspaceDefaultStorage",
+										"LocationSetToDatabaseDefault": false
+									}
+								},
+								"Properties": {
+									"textinputformat.record.delimiter": ",",
+									"compression": "",
+									"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+								},
+								"Compressed": false,
+								"IsStoredAsSubdirectories": false
+							},
+							"Properties": {
+								"Description": "",
+								"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+								"PrimaryKeys": "",
+								"spark.sql.sources.provider": "csv"
 							},
 							"Retention": 0,
 							"Temporary": false,
@@ -4269,7 +5183,7 @@
 						"spark.dynamicAllocation.enabled": "true",
 						"spark.dynamicAllocation.minExecutors": "1",
 						"spark.dynamicAllocation.maxExecutors": "4",
-						"spark.autotune.trackingId": "d49155f9-64e3-4787-88a1-269e273a8333"
+						"spark.autotune.trackingId": "615717a0-c18f-4506-bdb6-e8bc123eb71e"
 					}
 				},
 				"metadata": {
@@ -4313,7 +5227,7 @@
 							"# df.show(10)"
 						],
 						"outputs": [],
-						"execution_count": 3
+						"execution_count": 15
 					},
 					{
 						"cell_type": "code",
@@ -4332,7 +5246,7 @@
 							"spark.sql(\"SELECT DISTINCT ID_CONTRIBUINTE FROM LDB4.DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2\").show()"
 						],
 						"outputs": [],
-						"execution_count": 8
+						"execution_count": 14
 					},
 					{
 						"cell_type": "code",
@@ -4375,7 +5289,7 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "585f71f2-2602-4c3b-b258-8a943c10df37"
+						"spark.autotune.trackingId": "94f26537-4524-43fa-b057-2dfe68f1c713"
 					}
 				},
 				"metadata": {
@@ -4666,7 +5580,7 @@
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
 				"content": {
-					"query": "SELECT COUNT(ID_CONTRIBUINTE)\n FROM [LDB4].[dbo].[newtable]",
+					"query": "SELECT COUNT(ID_CONTRIBUINTE)\n FROM [LDB4].[dbo].[DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2]",
 					"metadata": {
 						"language": "sql"
 					},
