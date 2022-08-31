@@ -1,7 +1,7 @@
 {
-	"name": "newtable",
+	"name": "DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2",
 	"properties": {
-		"Name": "newtable",
+		"Name": "DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2",
 		"EntityType": "TABLE",
 		"Namespace": {
 			"DatabaseName": "LDB4"
