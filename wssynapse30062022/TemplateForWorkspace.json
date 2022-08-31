@@ -3201,7 +3201,7 @@
 						"ActionType": "CREATE",
 						"OldEntity": null,
 						"NewEntity": {
-							"Name": "newtable",
+							"Name": "DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2",
 							"EntityType": "TABLE",
 							"Namespace": {
 								"DatabaseName": "LDB4"
@@ -4269,7 +4269,7 @@
 						"spark.dynamicAllocation.enabled": "true",
 						"spark.dynamicAllocation.minExecutors": "1",
 						"spark.dynamicAllocation.maxExecutors": "4",
-						"spark.autotune.trackingId": "e8ac7534-fd01-4f6b-a3d0-cdcf659d9bc0"
+						"spark.autotune.trackingId": "d49155f9-64e3-4787-88a1-269e273a8333"
 					}
 				},
 				"metadata": {
@@ -4375,7 +4375,7 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "4b6cb67e-ab43-41ca-9e2a-ba617308ae2d"
+						"spark.autotune.trackingId": "585f71f2-2602-4c3b-b258-8a943c10df37"
 					}
 				},
 				"metadata": {
