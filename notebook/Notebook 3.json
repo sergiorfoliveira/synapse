@@ -1,0 +1,104 @@
+{
+	"name": "Notebook 3",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "SparkPool02",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 1,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "true",
+				"spark.dynamicAllocation.minExecutors": "1",
+				"spark.dynamicAllocation.maxExecutors": "4",
+				"spark.autotune.trackingId": "e44fd84e-f33f-4c3e-9e25-9a24b2419527"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/241719b7-f326-42c8-87a0-fb0182d3a3c7/resourceGroups/rgsynapse30062022/providers/Microsoft.Synapse/workspaces/wssynapse30062022/bigDataPools/SparkPool02",
+				"name": "SparkPool02",
+				"type": "Spark",
+				"endpoint": "https://wssynapse30062022.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkPool02",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"automaticScaleJobs": true
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					}
+				},
+				"source": [
+					"%%pyspark\n",
+					"df = spark.sql(\"SELECT * FROM `LDB4`.`DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2`\")\n",
+					"# df.show(10)"
+				],
+				"execution_count": 3
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"spark.sql(\"SELECT DISTINCT ID_CONTRIBUINTE FROM LDB4.DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2\").show()"
+				],
+				"execution_count": 8
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"path='abfss://fssynapse30062022@sasynapse30062022.dfs.core.windows.net/LakeDatabase1/DADOS_POC_ANONIMIZADO_ENTRADA_S2_v3.parquet'\r\n",
+					"df.coalesce(1).write.parquet(path, mode = 'overwrite')"
+				],
+				"execution_count": 13
+			}
+		]
+	}
+}
