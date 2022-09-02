@@ -2,7 +2,7 @@
 	"name": "SQL script 1",
 	"properties": {
 		"content": {
-			"query": "",
+			"query": "Select     \n    DB_NAME(s.database_id) as DBName, \n    COUNT(s.database_id) as NumberOfConnections,\n    nt_user_name as username, \n    login_name as LoginName,\n    program_name as ApplicationName \nFROM \n    sys.dm_exec_requests req\n    JOIN sys.dm_exec_sessions s ON req.session_id = s.session_id\nGROUP BY \n    s.database_id, nt_user_name, login_name, program_name",
 			"metadata": {
 				"language": "sql"
 			},

@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "11efbc66-af74-4a57-ad5a-97458e0e6abe"
+				"spark.autotune.trackingId": "13b02a24-377d-41ea-b053-ec5b9b49f073"
 			}
 		},
 		"metadata": {
@@ -57,10 +57,10 @@
 				},
 				"source": [
 					"%%pyspark\n",
-					"df = spark.sql(\"SELECT * FROM LDB4.DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2_validacao\")\n",
-					"# df.show(10)"
+					"df = spark.sql(\"SELECT * FROM LDB4.DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2\")\n",
+					"df.show(10)"
 				],
-				"execution_count": 16
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -76,9 +76,9 @@
 					}
 				},
 				"source": [
-					"df.show()"
+					"df.describe()"
 				],
-				"execution_count": null
+				"execution_count": 2
 			},
 			{
 				"cell_type": "code",
