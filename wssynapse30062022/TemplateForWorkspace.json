@@ -15,14 +15,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'wssynapse30062022-WorkspaceDefaultSqlServer'"
 		},
-		"AzureMLService1_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "241719b7-f326-42c8-87a0-fb0182d3a3c7"
-		},
-		"AzureMLService1_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "rgsynapse30062022"
-		},
 		"wssynapse30062022-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sasynapse30062022.dfs.core.windows.net"
@@ -33,682 +25,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('workspaceName'), '/csv_poc_ms_amostra_dataset_2022_08_22')]",
-			"type": "Microsoft.Synapse/workspaces/datasets",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage2",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "csv-poc-ms-amostra-dataset-2022-08-22.csv",
-						"folderPath": "UI/08-26-2022_074542_UTC",
-						"container": "azureml-blobstore-db601101-4b86-4850-b75b-273edbb4dc8a"
-					},
-					"columnDelimiter": ";",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "ID_CONTRIBUINTE",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_PRODUTO_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERESTADUAIS_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERNAS_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_ICMS_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_PRODUTO_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERESTADUAIS_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERNAS_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_ICMS_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_NFCE_12",
-						"type": "String"
-					},
-					{
-						"name": "NE12_NS12",
-						"type": "String"
-					},
-					{
-						"name": "NE12_NFCE12",
-						"type": "String"
-					},
-					{
-						"name": "D12_NE12",
-						"type": "String"
-					},
-					{
-						"name": "D12_NS12",
-						"type": "String"
-					},
-					{
-						"name": "NE3_NE12",
-						"type": "String"
-					},
-					{
-						"name": "CS_NE12",
-						"type": "String"
-					},
-					{
-						"name": "A12_NE12",
-						"type": "String"
-					},
-					{
-						"name": "ARRECADACAO_12",
-						"type": "String"
-					},
-					{
-						"name": "DECLARADOS_12",
-						"type": "String"
-					},
-					{
-						"name": "DECLARACOES_12_PERCENTUAL",
-						"type": "String"
-					},
-					{
-						"name": "COD_CONDICAO_CONTRB",
-						"type": "String"
-					},
-					{
-						"name": "COD_SETOR_ECONOMICO_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "COD_PORTE_ECONOMICO_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "TEMPO_OPERACAO",
-						"type": "String"
-					},
-					{
-						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
-						"type": "String"
-					},
-					{
-						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MVA_ANO_CALENDARIO",
-						"type": "String"
-					},
-					{
-						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA",
-						"type": "String"
-					},
-					{
-						"name": "UF",
-						"type": "String"
-					},
-					{
-						"name": "MUNICÍPIO",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL PRODUTO VENDIDO",
-						"type": "String"
-					},
-					{
-						"name": "PESO PRODUTO VENDAS",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL PRODUTO COMPRADO",
-						"type": "String"
-					},
-					{
-						"name": "PESO PRODUTO COMPRAS",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL FORNECEDOR",
-						"type": "String"
-					},
-					{
-						"name": "PESO FORNECEDOR",
-						"type": "String"
-					},
-					{
-						"name": "PESO_NO_FORNECEDOR",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL CLIENTE",
-						"type": "String"
-					},
-					{
-						"name": "PESO CLIENTE",
-						"type": "String"
-					},
-					{
-						"name": "PESO_NO_CLIENTE",
-						"type": "String"
-					},
-					{
-						"name": "CONTADOR RESPONSAVEL NFE",
-						"type": "String"
-					},
-					{
-						"name": "FORNECEDOR_INSCRITO",
-						"type": "String"
-					},
-					{
-						"name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_FORMA_PAGTO_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_CONDICAO_CONTRB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_SETOR_ECONOMICO_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_PORTE_ECONOMICO_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "DTR_INICIO_OPERACAO_EMPRESA_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MVA_ANO_CALENDARIO_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_F",
-						"type": "String"
-					},
-					{
-						"name": "CLIENTE_INSCRITO",
-						"type": "String"
-					},
-					{
-						"name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_FORMA_PAGTO_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_CONDICAO_CONTRB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_SETOR_ECONOMICO_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_PORTE_ECONOMICO_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "DTR_INICIO_OPERACAO_EMPRESA_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MVA_ANO_CALENDARIO_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_C",
-						"type": "String"
-					},
-					{
-						"name": "TARGET",
-						"type": "String"
-					},
-					{
-						"name": "MT_RANDOM",
-						"type": "String"
-					},
-					{
-						"name": "SELECAO",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/linkedServices/AzureBlobStorage2')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/csv_poc_ms_amostra_dataset_2022_08_22_V4')]",
-			"type": "Microsoft.Synapse/workspaces/datasets",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage2",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "csv-poc-ms-amostra-dataset-2022-08-22_V4.csv",
-						"folderPath": "UI/08-28-2022_104517_UTC",
-						"container": "azureml-blobstore-db601101-4b86-4850-b75b-273edbb4dc8a"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "ID_CONTRIBUINTE",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_PRODUTO_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERESTADUAIS_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERNAS_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_ICMS_E12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_PRODUTO_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERESTADUAIS_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_INTERNAS_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_ICMS_S12",
-						"type": "String"
-					},
-					{
-						"name": "TOTAL_NFCE_12",
-						"type": "String"
-					},
-					{
-						"name": "NE12_NS12",
-						"type": "String"
-					},
-					{
-						"name": "NE12_NFCE12",
-						"type": "String"
-					},
-					{
-						"name": "D12_NE12",
-						"type": "String"
-					},
-					{
-						"name": "D12_NS12",
-						"type": "String"
-					},
-					{
-						"name": "NE3_NE12",
-						"type": "String"
-					},
-					{
-						"name": "CS_NE12",
-						"type": "String"
-					},
-					{
-						"name": "A12_NE12",
-						"type": "String"
-					},
-					{
-						"name": "ARRECADACAO_12",
-						"type": "String"
-					},
-					{
-						"name": "DECLARADOS_12",
-						"type": "String"
-					},
-					{
-						"name": "DECLARACOES_12_PERCENTUAL",
-						"type": "String"
-					},
-					{
-						"name": "COD_CONDICAO_CONTRB",
-						"type": "String"
-					},
-					{
-						"name": "COD_SETOR_ECONOMICO_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "COD_PORTE_ECONOMICO_CONTRIB",
-						"type": "String"
-					},
-					{
-						"name": "TEMPO_OPERACAO",
-						"type": "String"
-					},
-					{
-						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
-						"type": "String"
-					},
-					{
-						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MVA_ANO_CALENDARIO",
-						"type": "String"
-					},
-					{
-						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA",
-						"type": "String"
-					},
-					{
-						"name": "UF",
-						"type": "String"
-					},
-					{
-						"name": "MUNICÍPIO",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL PRODUTO VENDIDO",
-						"type": "String"
-					},
-					{
-						"name": "PESO PRODUTO VENDAS",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL PRODUTO COMPRADO",
-						"type": "String"
-					},
-					{
-						"name": "PESO PRODUTO COMPRAS",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL FORNECEDOR",
-						"type": "String"
-					},
-					{
-						"name": "PESO FORNECEDOR",
-						"type": "String"
-					},
-					{
-						"name": "PESO_NO_FORNECEDOR",
-						"type": "String"
-					},
-					{
-						"name": "PRINCIPAL CLIENTE",
-						"type": "String"
-					},
-					{
-						"name": "PESO CLIENTE",
-						"type": "String"
-					},
-					{
-						"name": "PESO_NO_CLIENTE",
-						"type": "String"
-					},
-					{
-						"name": "CONTADOR RESPONSAVEL NFE",
-						"type": "String"
-					},
-					{
-						"name": "FORNECEDOR_INSCRITO",
-						"type": "String"
-					},
-					{
-						"name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_FORMA_PAGTO_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_CONDICAO_CONTRB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_SETOR_ECONOMICO_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "COD_PORTE_ECONOMICO_CONTRIB_F",
-						"type": "String"
-					},
-					{
-						"name": "DTR_INICIO_OPERACAO_EMPRESA_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MVA_ANO_CALENDARIO_F",
-						"type": "String"
-					},
-					{
-						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_F",
-						"type": "String"
-					},
-					{
-						"name": "CLIENTE_INSCRITO",
-						"type": "String"
-					},
-					{
-						"name": "DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_FORMA_PAGTO_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_CONDICAO_CONTRB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_SETOR_ECONOMICO_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_SEGMENTO_ECONOMICO_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_SUBSEGMENTO_ECONOM_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "COD_PORTE_ECONOMICO_CONTRIB_C",
-						"type": "String"
-					},
-					{
-						"name": "DTR_INICIO_OPERACAO_EMPRESA_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_MVA_ANO_CALENDARIO_C",
-						"type": "String"
-					},
-					{
-						"name": "VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_C",
-						"type": "String"
-					},
-					{
-						"name": "TARGET",
-						"type": "String"
-					},
-					{
-						"name": "MT_RANDOM",
-						"type": "String"
-					},
-					{
-						"name": "SELECAO",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/linkedServices/AzureBlobStorage2')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('workspaceName'), '/AzureBlobStorage2')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
 			"apiVersion": "2019-06-01-preview",
@@ -717,28 +33,6 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureBlobStorage2_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "AutoResolveIntegrationRuntime",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/AzureMLService1')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"type": "AzureMLService",
-				"typeProperties": {
-					"subscriptionId": "[parameters('AzureMLService1_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('AzureMLService1_properties_typeProperties_resourceGroupName')]",
-					"mlWorkspaceName": "wsaml30062022",
-					"authentication": "MSI"
 				},
 				"connectVia": {
 					"referenceName": "AutoResolveIntegrationRuntime",
@@ -972,6 +266,46 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 8')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "SELECT TOP (100) [ID_CONTRIBUINTE]\n,[TOTAL_E12]\n,[TOTAL_PRODUTO_E12]\n,[TOTAL_INTERESTADUAIS_E12]\n,[TOTAL_INTERNAS_E12]\n,[TOTAL_ICMS_E12]\n,[TOTAL_S12]\n,[TOTAL_PRODUTO_S12]\n,[TOTAL_INTERESTADUAIS_S12]\n,[TOTAL_INTERNAS_S12]\n,[TOTAL_ICMS_S12]\n,[TOTAL_NFCE_12]\n,[NE12_NS12]\n,[NE12_NFCE12]\n,[D12_NE12]\n,[D12_NS12]\n,[NE3_NE12]\n,[CS_NE12]\n,[A12_NE12]\n,[ARRECADACAO_12]\n,[DECLARADOS_12]\n,[DECLARACOES_12_PERCENTUAL]\n,[COD_CONDICAO_CONTRB]\n,[COD_SETOR_ECONOMICO_CONTRIB]\n,[COD_SEGMENTO_ECONOMICO_CONTRIB]\n,[COD_SUBSEGMENTO_ECONOM_CONTRIB]\n,[COD_PORTE_ECONOMICO_CONTRIB]\n,[TEMPO_OPERACAO]\n,[VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA]\n,[VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES]\n,[VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES]\n,[VAL_MVA_ANO_CALENDARIO]\n,[VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA]\n,[UF]\n,[MUNICIPIO]\n,[PRINCIPAL_PRODUTO_VENDIDO]\n,[PESO_PRODUTO_VENDAS]\n,[PRINCIPAL_PRODUTO_COMPRADO]\n,[PESO_PRODUTO_COMPRAS]\n,[PRINCIPAL_FORNECEDOR]\n,[PESO_FORNECEDOR]\n,[PESO_NO_FORNECEDOR]\n,[PRINCIPAL_CLIENTE]\n,[PESO_CLIENTE]\n,[PESO_NO_CLIENTE]\n,[CONTADOR_RESPONSAVEL_NFE]\n,[FORNECEDOR_INSCRITO]\n,[DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_F]\n,[COD_FORMA_PAGTO_F]\n,[COD_CONDICAO_CONTRB_F]\n,[COD_SETOR_ECONOMICO_CONTRIB_F]\n,[COD_SEGMENTO_ECONOMICO_CONTRIB_F]\n,[COD_SUBSEGMENTO_ECONOM_CONTRIB_F]\n,[COD_PORTE_ECONOMICO_CONTRIB_F]\n,[DTR_INICIO_OPERACAO_EMPRESA_F]\n,[VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_F]\n,[VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F]\n,[VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F]\n,[VAL_MVA_ANO_CALENDARIO_F]\n,[VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_F]\n,[CLIENTE_INSCRITO]\n,[DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_C]\n,[COD_FORMA_PAGTO_C]\n,[COD_CONDICAO_CONTRB_C]\n,[COD_SETOR_ECONOMICO_CONTRIB_C]\n,[COD_SEGMENTO_ECONOMICO_CONTRIB_C]\n,[COD_SUBSEGMENTO_ECONOM_CONTRIB_C]\n,[COD_PORTE_ECONOMICO_CONTRIB_C]\n,[DTR_INICIO_OPERACAO_EMPRESA_C]\n,[VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_C]\n,[VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C]\n,[VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C]\n,[VAL_MVA_ANO_CALENDARIO_C]\n,[VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_C]\n,[TARGET]\n,[MT_RANDOM]\n,[SELECAO]\n FROM [LDB4].[dbo].[DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2]",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "LDB4",
+						"poolName": "Built-in"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 9')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "SELECT * FROM sys.database_principals",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "LDB4",
+						"poolName": "Built-in"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('workspaceName'), '/ML Experiment')]",
 			"type": "Microsoft.Synapse/workspaces/notebooks",
 			"apiVersion": "2019-06-01-preview",
@@ -1139,7 +473,7 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "632554f4-4b9e-4dc6-954f-7f3d943c9583"
+						"spark.autotune.trackingId": "b3d839f4-2d64-4ed7-b3a5-133033da7f3a"
 					}
 				},
 				"metadata": {
@@ -1164,8 +498,7 @@
 						"sparkVersion": "3.1",
 						"nodeCount": 10,
 						"cores": 8,
-						"memory": 56,
-						"automaticScaleJobs": false
+						"memory": 56
 					},
 					"sessionKeepAliveTimeout": 30
 				},
@@ -1230,7 +563,7 @@
 						"spark.dynamicAllocation.enabled": "true",
 						"spark.dynamicAllocation.minExecutors": "1",
 						"spark.dynamicAllocation.maxExecutors": "4",
-						"spark.autotune.trackingId": "0b37a38a-5347-477c-ab59-ee13709efd5e"
+						"spark.autotune.trackingId": "2544e250-070e-42e4-a2dc-92a09b1c7016"
 					}
 				},
 				"metadata": {
@@ -1255,15 +588,13 @@
 						"sparkVersion": "2.4",
 						"nodeCount": 10,
 						"cores": 8,
-						"memory": 56,
-						"automaticScaleJobs": true
+						"memory": 56
 					},
 					"sessionKeepAliveTimeout": 30
 				},
 				"cells": [
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"import azureml.core\n",
 							"\n",
@@ -1277,7 +608,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"linkedService_name = \"AzureMLService1\"\n",
 							"experiment_name = \"wssynapse30062022-csv_poc_ms_amostra_dataset_2022_08_22_V7-20220830113644\"\n",
@@ -1290,7 +620,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"df = spark.sql(\"SELECT * FROM LDB4.csv_poc_ms_amostra_dataset_2022_08_22_V7\")\n",
 							"\n",
@@ -1302,7 +631,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"automl_config = AutoMLConfig(spark_context = sc,\n",
 							"                             task = \"classification\",\n",
@@ -1318,7 +646,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"run = experiment.submit(automl_config)"
 						],
@@ -1327,7 +654,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"displayHTML(\"<a href={} target='_blank'>Your experiment in Azure Machine Learning portal: {}</a>\".format(run.get_portal_url(), run.id))"
 						],
@@ -1336,7 +662,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"run.wait_for_completion()\n",
 							"\n",
@@ -1385,7 +710,7 @@
 						"spark.dynamicAllocation.enabled": "true",
 						"spark.dynamicAllocation.minExecutors": "1",
 						"spark.dynamicAllocation.maxExecutors": "4",
-						"spark.autotune.trackingId": "5f5226cb-e4c0-45d4-bb0c-ef2e43df0695"
+						"spark.autotune.trackingId": "13b02a24-377d-41ea-b053-ec5b9b49f073"
 					}
 				},
 				"metadata": {
@@ -1410,8 +735,7 @@
 						"sparkVersion": "2.4",
 						"nodeCount": 10,
 						"cores": 8,
-						"memory": 56,
-						"automaticScaleJobs": true
+						"memory": 56
 					},
 					"sessionKeepAliveTimeout": 30
 				},
@@ -1897,30 +1221,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/default/AzureBlobStorage877')]",
-			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"privateLinkResourceId": "/subscriptions/241719b7-f326-42c8-87a0-fb0182d3a3c7/resourceGroups/rgsynapse30062022/providers/Microsoft.Storage/storageAccounts/saaml30062022",
-				"groupId": "blob"
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/default/AzureDataLakeStorage992')]",
-			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"privateLinkResourceId": "/subscriptions/241719b7-f326-42c8-87a0-fb0182d3a3c7/resourceGroups/rgsynapse30062022/providers/Microsoft.Storage/storageAccounts/saaml30062022",
-				"groupId": "dfs"
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('workspaceName'), '/default/synapse-ws-custstgacct--wssynapse30062022-sasynapse30062022')]",
 			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints",
 			"apiVersion": "2019-06-01-preview",
@@ -1964,46 +1264,6 @@
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/SQL script 8')]",
-			"type": "Microsoft.Synapse/workspaces/sqlscripts",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"content": {
-					"query": "SELECT TOP (100) [ID_CONTRIBUINTE]\n,[TOTAL_E12]\n,[TOTAL_PRODUTO_E12]\n,[TOTAL_INTERESTADUAIS_E12]\n,[TOTAL_INTERNAS_E12]\n,[TOTAL_ICMS_E12]\n,[TOTAL_S12]\n,[TOTAL_PRODUTO_S12]\n,[TOTAL_INTERESTADUAIS_S12]\n,[TOTAL_INTERNAS_S12]\n,[TOTAL_ICMS_S12]\n,[TOTAL_NFCE_12]\n,[NE12_NS12]\n,[NE12_NFCE12]\n,[D12_NE12]\n,[D12_NS12]\n,[NE3_NE12]\n,[CS_NE12]\n,[A12_NE12]\n,[ARRECADACAO_12]\n,[DECLARADOS_12]\n,[DECLARACOES_12_PERCENTUAL]\n,[COD_CONDICAO_CONTRB]\n,[COD_SETOR_ECONOMICO_CONTRIB]\n,[COD_SEGMENTO_ECONOMICO_CONTRIB]\n,[COD_SUBSEGMENTO_ECONOM_CONTRIB]\n,[COD_PORTE_ECONOMICO_CONTRIB]\n,[TEMPO_OPERACAO]\n,[VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA]\n,[VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES]\n,[VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES]\n,[VAL_MVA_ANO_CALENDARIO]\n,[VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA]\n,[UF]\n,[MUNICIPIO]\n,[PRINCIPAL_PRODUTO_VENDIDO]\n,[PESO_PRODUTO_VENDAS]\n,[PRINCIPAL_PRODUTO_COMPRADO]\n,[PESO_PRODUTO_COMPRAS]\n,[PRINCIPAL_FORNECEDOR]\n,[PESO_FORNECEDOR]\n,[PESO_NO_FORNECEDOR]\n,[PRINCIPAL_CLIENTE]\n,[PESO_CLIENTE]\n,[PESO_NO_CLIENTE]\n,[CONTADOR_RESPONSAVEL_NFE]\n,[FORNECEDOR_INSCRITO]\n,[DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_F]\n,[COD_FORMA_PAGTO_F]\n,[COD_CONDICAO_CONTRB_F]\n,[COD_SETOR_ECONOMICO_CONTRIB_F]\n,[COD_SEGMENTO_ECONOMICO_CONTRIB_F]\n,[COD_SUBSEGMENTO_ECONOM_CONTRIB_F]\n,[COD_PORTE_ECONOMICO_CONTRIB_F]\n,[DTR_INICIO_OPERACAO_EMPRESA_F]\n,[VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_F]\n,[VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F]\n,[VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_F]\n,[VAL_MVA_ANO_CALENDARIO_F]\n,[VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_F]\n,[CLIENTE_INSCRITO]\n,[DTR_REFERENCIA_PROCESSAMENTO_ROTINA_MALHA_FISCAL_C]\n,[COD_FORMA_PAGTO_C]\n,[COD_CONDICAO_CONTRB_C]\n,[COD_SETOR_ECONOMICO_CONTRIB_C]\n,[COD_SEGMENTO_ECONOMICO_CONTRIB_C]\n,[COD_SUBSEGMENTO_ECONOM_CONTRIB_C]\n,[COD_PORTE_ECONOMICO_CONTRIB_C]\n,[DTR_INICIO_OPERACAO_EMPRESA_C]\n,[VAL_CAPITAL_SOCIAL_DECLARADO_EMPRESA_C]\n,[VAL_MEDIO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C]\n,[VAL_DESVIO_PADRAO_ARRECADACAO_ICMS_ULTIMO_DOZE_MES_C]\n,[VAL_MVA_ANO_CALENDARIO_C]\n,[VAL_SALDO_FLUXO_FINANCEIRO_EMPRESA_C]\n,[TARGET]\n,[MT_RANDOM]\n,[SELECAO]\n FROM [LDB4].[dbo].[DADOS_POC_ANONIMIZADO_ENTRADA_S2_v2]",
-					"metadata": {
-						"language": "sql"
-					},
-					"currentConnection": {
-						"databaseName": "LDB4",
-						"poolName": "Built-in"
-					},
-					"resultLimit": 5000
-				},
-				"type": "SqlQuery"
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/SQL script 9')]",
-			"type": "Microsoft.Synapse/workspaces/sqlscripts",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"content": {
-					"query": "SELECT * FROM sys.database_principals",
-					"metadata": {
-						"language": "sql"
-					},
-					"currentConnection": {
-						"databaseName": "LDB4",
-						"poolName": "Built-in"
-					},
-					"resultLimit": 5000
-				},
-				"type": "SqlQuery"
-			},
-			"dependsOn": []
 		}
 	]
 }

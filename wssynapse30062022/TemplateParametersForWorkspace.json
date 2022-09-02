@@ -11,12 +11,6 @@
 		"wssynapse30062022-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
 		},
-		"AzureMLService1_properties_typeProperties_subscriptionId": {
-			"value": "241719b7-f326-42c8-87a0-fb0182d3a3c7"
-		},
-		"AzureMLService1_properties_typeProperties_resourceGroupName": {
-			"value": "rgsynapse30062022"
-		},
 		"wssynapse30062022-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://sasynapse30062022.dfs.core.windows.net"
 		}
